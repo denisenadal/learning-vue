@@ -1,5 +1,17 @@
-/* If you're feeling fancy you can add interactivity 
-    to your site with Javascript */
-
-// prints "hi" in the browser's dev tools console
-console.log('hi');
+const app = new Vue({
+    el: '#vue-app',
+    data: {
+        message: 'hello Vue!',
+        now: new Date()
+    },
+    methods: {
+        updateDate() {
+            this.now = new Date();
+        },
+        mounted() {
+            setInterval(() => {
+                this.updateDate();
+            }, 100);
+        }
+    }
+});
